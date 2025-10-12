@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Redeploy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .heroes {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(99, 102, 241, 0.7) 100%);
+        }
+        .leadership-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Custom link styles for footer */
+        .footer-link, .ct-link {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i data-feather="refresh-cw" class="text-indigo-600 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Redeploy</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="For Companies.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">For Companies</a>
+                    <a href="For Employees.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">For Employees</a>
+                    <a href="how-it-works.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">How It Works</a>
+                    <a href="#" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium text-indigo-600 font-semibold">About Us</a>
+                    <a href="https://calendly.com/jawadafghan01/30min" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">Get Started</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="heroes flex items-center justify-center h-96">
+        <div class="text-center px-4 sm:px-6 lg:px-8 text-white">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">About Redeploy</h1>
+            <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                We're revolutionizing how talent transitions during workforce changes
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Mission & Vision</h2>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    At Redeploy, we believe that talent redundancy doesn't have to mean wasted potential. Whether you're a company facing workforce changes or an individual looking for a new role, we're here to help.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="md:order-2" data-aos="fade-left">
+                    <p class="text-gray-700 text-lg mb-6">
+                        Our mission is to create a seamless bridge between skilled professionals affected by organizational changes and companies seeking their expertise.
+                    </p>
+                    <p class="text-gray-700 text-lg mb-6">
+                        If you're someone looking for a new role, we're dedicated to connecting you with opportunities that match your skills and experience, making your transition smoother and more efficient.
+                    </p>
+                    <p class="text-gray-700 text-lg mb-8">
+                        We envision a world where workforce transitions are opportunities for growth rather than periods of uncertainty. By connecting talent with opportunity, we're building stronger businesses and more resilient careers.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-600 mb-2">Headquarters</h3>
+                            <p class="text-gray-700">London, UK</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-600 mb-2">People Placed</h3>
+                            <p class="text-gray-700">1,200+</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-600 mb-2">Corporate Partners</h3>
+                            <p class="text-gray-700">85+</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-600 mb-2">Success Rate</h3>
+                            <p class="text-gray-700">92%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:order-1" data-aos="fade-right">
+                    <div class="h-full w-full rounded-xl shadow-lg bg-indigo-100 flex items-center justify-center">
+                        <i data-feather="target" class="text-indigo-600 h-24 w-24 opacity-20"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="py-20 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Values</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Principles that guide everything we do
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Value 1 -->
+                <div class="text-center" data-aos="fade-up">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mx-auto mb-6">
+                        <i data-feather="heart" class="h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Human-Centered</h3>
+                    <p class="text-gray-700">
+                        We believe technology should serve people, not replace human connection. Every feature is designed with empathy.
+                    </p>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mx-auto mb-6">
+                        <i data-feather="zap" class="h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Speed & Efficiency</h3>
+                    <p class="text-gray-700">
+                        In times of transition, speed matters. We've optimized every process to connect talent with opportunity as quickly as possible.
+                    </p>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mx-auto mb-6">
+                        <i data-feather="shield" class="h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Privacy & Discretion</h3>
+                    <p class="text-gray-700">
+                        We understand these transitions are sensitive. Your information is protected with military-grade encryption and strict confidentiality.
+                    </p>
+                </div>
+                
+                <!-- Value 4 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mx-auto mb-6">
+                        <i data-feather="award" class="h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Quality Matching</h3>
+                    <p class="text-gray-700">
+                        It's not just about filling roles—it's about creating perfect matches that lead to long-term success for everyone involved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Ready To Transform Redundancy? or Looking for a new role</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Whether you're facing redundancies, affected by them, or looking to hire experienced talent, we can help.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="For Companies.html" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-6 rounded-md transition-colors">
+                    I'm a Company
+                </a>
+                <a href="For Employees.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-600 text-white font-medium py-3 px-6 rounded-md transition-colors">
+                    I'm a Professional
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Redeploy</h3>
+                    <p class="text-gray-400 text-sm">
+                        Connecting talent with opportunity during workforce transitions.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">For Companies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="For Companies.html" class="text-gray-400 hover:text-white text-sm footer-link">Report Redundancies</a></li>
+                        <li><a href="For Companies.html" class="text-gray-400 hover:text-white text-sm footer-link">Hire Through Us</a></li>
+                        <li><a href="For Companies.html" class="text-gray-400 hover:text-white text-sm footer-link">Corporate Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">For Professionals</h3>
+                    <ul class="space-y-2">
+                        <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm footer-link">Register Your Profile</a></li>
+                        <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm footer-link">Job Opportunities</a></li>
+                        <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm footer-link">Career Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-4">
+                        info@redeploy.com<br>
+                        +44 7424 246539
+                    </p>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 Redeploy. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        feather.replace();
+    </script>
+</body>
+</html>
