@@ -58,10 +58,20 @@
                     <a href="About US.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">About Us</a>
                 </div>
                 <div class="-mr-2 flex items-center md:hidden">
-                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
-                        <i data-feather="menu"></i>
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu" class="h-6 w-6"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="For Companies.html" class="text-indigo-600 font-medium block px-3 py-2 rounded-md text-base">For Companies</a>
+                <a href="For Employees.html" class="text-gray-900 hover:text-indigo-600 block px-3 py-2 rounded-md text-base">For Employees</a>
+                <a href="how-it-works.html" class="text-gray-900 hover:text-indigo-600 block px-3 py-2 rounded-md text-base">How It Works</a>
+                <a href="About US.html" class="text-gray-900 hover:text-indigo-600 block px-3 py-2 rounded-md text-base">About Us</a>
             </div>
         </div>
     </nav>
@@ -375,11 +385,11 @@
             <div class="space-y-6">
                 <!-- FAQ Item 1 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up">
-                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
                         <span class="font-medium text-gray-900">How long does it take to implement Redeploy?</span>
                         <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
                     </button>
-                    <div class="px-6 py-4">
+                    <div class="faq-panel px-6 py-4 hidden">
                         <p class="text-gray-600">
                             Implementation can be completed in as little as 48 hours. Our team will work with your HR department to set up the secure portal, configure reporting parameters, and train designated personnel. For urgent situations, we can have your program live within hours.
                         </p>
@@ -388,11 +398,11 @@
 
                 <!-- FAQ Item 2 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
                         <span class="font-medium text-gray-900">Is employee data kept confidential?</span>
                         <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
                     </button>
-                    <div class="px-6 py-4">
+                    <div class="faq-panel px-6 py-4 hidden">
                         <p class="text-gray-600">
                             Absolutely. We take data privacy extremely seriously. All employee information is encrypted and stored securely. Only aggregated, anonymized data is shared with potential hiring companies until express consent is given by the individual employee. Our platform complies with GDPR and other relevant data protection regulations.
                         </p>
@@ -401,11 +411,11 @@
 
                 <!-- FAQ Item 3 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
                         <span class="font-medium text-gray-900">What types of roles do you typically place?</span>
                         <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
                     </button>
-                    <div class="px-6 py-4">
+                    <div class="faq-panel px-6 py-4 hidden">
                         <p class="text-gray-600">
                             We successfully place professionals across a wide range of industries and functions, from entry-level to executive positions. Our algorithm is particularly effective for roles requiring specialized skills or experience, including technology, finance, healthcare, engineering, and professional services.
                         </p>
@@ -414,11 +424,11 @@
 
                 <!-- FAQ Item 4 -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <button class="faq-toggle flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
                         <span class="font-medium text-gray-900">How much does Redeploy cost?</span>
                         <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
                     </button>
-                    <div class="px-6 py-4">
+                    <div class="faq-panel px-6 py-4 hidden">
                         <p class="text-gray-600">
                             Our pricing is based on the size of your organization and the scope of your transition. Most companies find that the reduction in severance costs alone more than covers our fees. We offer customized pricing plans and can provide a detailed ROI analysis for your specific situation.
                         </p>
@@ -488,19 +498,53 @@
         
         feather.replace();
         
-        // Toggle FAQ items
-        document.querySelectorAll('button').forEach(button => {
-            if (button.querySelector('svg')) {
-                button.addEventListener('click', () => {
-                    const icon = button.querySelector('svg');
-                    const isOpen = icon.getAttribute('data-feather') === 'chevron-up';
-                    
-                    // Toggle icon
-                    feather.icons[isOpen ? 'chevron-down' : 'chevron-up'].replace(icon);
-                    
-                    // Re-initialize feather icons
-                    feather.replace();
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            
+            if (isExpanded) {
+                mobileMenu.classList.add('hidden');
+                feather.icons['menu'].replace(this.querySelector('svg'));
+            } else {
+                mobileMenu.classList.remove('hidden');
+                feather.icons['x'].replace(this.querySelector('svg'));
+            }
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const panel = button.nextElementSibling;
+                const isOpen = panel.classList.contains('hidden');
+                
+                // Close all panels
+                document.querySelectorAll('.faq-panel').forEach(p => {
+                    p.classList.add('hidden');
+                    p.previousElementSibling.querySelector('svg').setAttribute('data-feather', 'chevron-down');
                 });
+                
+                // Open selected panel if it was closed
+                if (isOpen) {
+                    panel.classList.remove('hidden');
+                    button.querySelector('svg').setAttribute('data-feather', 'chevron-up');
+                }
+                
+                feather.replace();
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = mobileMenu.contains(event.target) || mobileMenuButton.contains(event.target);
+            if (!isClickInsideNav && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                feather.icons['menu'].replace(mobileMenuButton.querySelector('svg'));
+                feather.replace();
             }
         });
     </script>
