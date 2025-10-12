@@ -361,15 +361,19 @@
     </footer>
 
     <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        feather.replace();
-        
-        // Initialize Vanta.js globe
+  
+    // Initialize animations
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+
+    // Initialize Feather icons
+    feather.replace();
+
+    // Initialize Vanta.js globe (disabled on small screens for performance)
+    if (window.innerWidth > 768) {
         VANTA.GLOBE({
             el: "#vanta-globe",
             mouseControls: true,
@@ -383,7 +387,59 @@
             backgroundColor: 0xf8fafc,
             size: 0.8
         });
+    }
+
+    // --- Mobile Menu Toggle ---
+    const menuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+    const mobileMenu = document.createElement('div');
+
+    mobileMenu.id = 'mobile-menu';
+    mobileMenu.className = 'md:hidden hidden bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ease-in-out';
+    mobileMenu.innerHTML = `
+        <div class="px-4 pt-2 pb-3 space-y-1">
+            <a href="For Companies.html" class="block text-gray-900 hover:text-indigo-600 px-3 py-2 text-base font-medium">For Companies</a>
+            <a href="For Employees.html" class="block text-gray-900 hover:text-indigo-600 px-3 py-2 text-base font-medium">For Employees</a>
+            <a href="how-it-works.html" class="block text-gray-900 hover:text-indigo-600 px-3 py-2 text-base font-medium">How It Works</a>
+            <a href="About US.html" class="block text-gray-900 hover:text-indigo-600 px-3 py-2 text-base font-medium">About Us</a>
+            <a href="https://calendly.com/jawadafghan01/30min" class="block bg-indigo-600 text-white px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700 transition-colors">Get Started</a>
+        </div>
+    `;
+
+    // Insert menu directly after the nav
+    const nav = document.querySelector('nav');
+    nav.parentNode.insertBefore(mobileMenu, nav.nextSibling);
+
+    // Handle menu toggle with animation and icon swap
+    menuButton.addEventListener('click', () => {
+        const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', !expanded);
+
+        if (expanded) {
+            // Close menu (slide up)
+            mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            requestAnimationFrame(() => {
+                mobileMenu.style.maxHeight = '0';
+            });
+            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+        } else {
+            // Open menu (slide down)
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.style.maxHeight = '0';
+            requestAnimationFrame(() => {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            });
+        }
+
+        // Toggle icon between menu and x
+        menuButton.innerHTML = expanded
+            ? '<i data-feather="menu"></i>'
+            : '<i data-feather="x"></i>';
+        feather.replace();
+    });
+
+
     </script>
 </body>
 </html>
+
 
