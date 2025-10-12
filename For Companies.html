@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Companies | Redeploy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .process-step {
+            position: relative;
+        }
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 32px;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i data-feather="refresh-cw" class="text-indigo-600 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Redeploy</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#" class="text-indigo-600 font-medium px-3 py-2 text-sm">For Companies</a>
+                    <a href="for-employees.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">For Employees</a>
+                    <a href="how-it-works.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">How It Works</a>
+                    <a href="#" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">About Us</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        Support Your Team
+                        <br class="hidden md:block">Through Transitions
+                    </h1>
+                    <p class="text-xl text-gray-700 mb-8">
+                        When restructuring is necessary, demonstrate your commitment to employee wellbeing with Redeploy's seamless transition program.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-md transition-colors text-center">
+                            Get Started
+                        </a>
+                        <a href="#benefits" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-8 rounded-md border border-indigo-600 transition-colors text-center">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80" alt="Team collaboration" class="rounded-2xl shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Redeploy - Key Stats -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Why Companies Choose Redeploy</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Support your affected employees while protecting your reputation and minimizing costs
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">65%</div>
+                    <p class="text-gray-700 font-medium">Of employees find new roles<br>before their notice period ends</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">78%</div>
+                    <p class="text-gray-700 font-medium">Reduction in severance costs<br>for participating companies</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">94%</div>
+                    <p class="text-gray-700 font-medium">Employee satisfaction rate with<br>the transition support provided</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Benefits for Employers</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    A comprehensive solution that transforms a difficult situation into an opportunity to demonstrate leadership and corporate responsibility
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Benefit 1 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="h-12 w-12 rounded-md bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                            <i data-feather="heart" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Enhance Employee Experience</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Even in difficult times, show your commitment to employee wellbeing by helping displaced team members find new opportunities quickly.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Provide proactive career transition support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Maintain trust with remaining employees</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Reduce potential legal risks associated with layoffs</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="h-12 w-12 rounded-md bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                            <i data-feather="trending-up" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Protect Your Brand</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Maintain your employer brand and reputation in the industry by handling workforce transitions with compassion and professionalism.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Position your organization as an employer of choice</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Receive positive media coverage for your transition program</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Build goodwill with industry partners and competitors</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="h-12 w-12 rounded-md bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                            <i data-feather="dollar-sign" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Reduce Costs</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Minimize financial impact by reducing severance obligations when employees secure new employment before their notice period ends.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Lower overall restructuring costs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Reduce administrative burden of managing layoffs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Optimize workforce transition budget allocations</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-6">
+                        <div class="h-12 w-12 rounded-md bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                            <i data-feather="network" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Strengthen Industry Network</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Become part of a growing ecosystem of organizations committed to responsible workforce management and talent mobility.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Access a network of potential future hires</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Share best practices with other industry leaders</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-indigo-600 mr-2 mt-1 flex-shrink-0 h-5 w-5"></i>
+                            <span>Position your company as an industry innovator</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">How It Works for Companies</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    A streamlined, confidential process that supports your workforce transition
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row md:items-start justify-center max-w-4xl mx-auto">
+                <!-- Step 1 -->
+                <div class="process-step text-center md:w-1/3 mb-12 md:mb-0" data-aos="fade-up">
+                    <div class="flex flex-col items-center">
+                        <div class="h-16 w-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold mb-4">1</div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Report Redundancies</h3>
+                        <p class="text-gray-600">
+                            Share details about affected employees through our secure portal. All information remains confidential.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step text-center md:w-1/3 mb-12 md:mb-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col items-center">
+                        <div class="h-16 w-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold mb-4">2</div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">We Connect Talent</h3>
+                        <p class="text-gray-600">
+                            Our matching algorithm connects displaced employees with appropriate opportunities at other organizations.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step text-center md:w-1/3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col items-center">
+                        <div class="h-16 w-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold mb-4">3</div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Monitor Progress</h3>
+                        <p class="text-gray-600">
+                            Receive regular updates on placement success rates and detailed analytics on your transition program.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">What Companies Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Hear from organizations that have successfully managed workforce transitions with Redeploy
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <img src="https://ui-avatars.com/api/?name=Emma+Thompson&background=6366f1&color=fff&size=64" alt="Emma Thompson" class="h-12 w-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Emma Thompson</h4>
+                            <p class="text-sm text-gray-500">HR Director, TechCorp</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">
+                        "When we needed to restructure our engineering team, Redeploy helped us support our talented professionals in finding new roles. 72% of our affected employees secured positions before leaving, which was incredible for morale and our employer brand. The process was seamless and confidential."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <img src="https://ui-avatars.com/api/?name=David+Chen&background=6366f1&color=fff&size=64" alt="David Chen" class="h-12 w-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">David Chen</h4>
+                            <p class="text-sm text-gray-500">VP of Operations, FinServe Group</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">
+                        "Redeploy transformed what could have been a public relations challenge into an opportunity to demonstrate our values. Our transition support program received positive coverage in industry publications, and we've established valuable connections with other organizations in our network. The financial savings from reduced severance were significant."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                        <i data-feather="star" class="h-5 w-5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Ready to Support Your Team?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Let us help you manage workforce transitions with compassion, professionalism, and results.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-8 rounded-md transition-colors text-center">
+                    Schedule a Demo
+                </a>
+                <a href="#" class="bg-indigo-800 hover:bg-indigo-900 text-white font-medium py-3 px-8 rounded-md transition-colors text-center">
+                    Get Started Today
+                </a>
+            </div>
+            <p class="mt-6 text-indigo-100 text-sm" data-aos="fade-up" data-aos-delay="300">
+                Implementation in as little as 48 hours • Enterprise-grade security • Dedicated support team
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">
+                    Everything you need to know about Redeploy for companies
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up">
+                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-medium text-gray-900">How long does it take to implement Redeploy?</span>
+                        <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">
+                            Implementation can be completed in as little as 48 hours. Our team will work with your HR department to set up the secure portal, configure reporting parameters, and train designated personnel. For urgent situations, we can have your program live within hours.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-medium text-gray-900">Is employee data kept confidential?</span>
+                        <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">
+                            Absolutely. We take data privacy extremely seriously. All employee information is encrypted and stored securely. Only aggregated, anonymized data is shared with potential hiring companies until express consent is given by the individual employee. Our platform complies with GDPR and other relevant data protection regulations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-medium text-gray-900">What types of roles do you typically place?</span>
+                        <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">
+                            We successfully place professionals across a wide range of industries and functions, from entry-level to executive positions. Our algorithm is particularly effective for roles requiring specialized skills or experience, including technology, finance, healthcare, engineering, and professional services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <button class="flex justify-between items-center w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-medium text-gray-900">How much does Redeploy cost?</span>
+                        <i data-feather="chevron-down" class="h-5 w-5 text-gray-500"></i>
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">
+                            Our pricing is based on the size of your organization and the scope of your transition. Most companies find that the reduction in severance costs alone more than covers our fees. We offer customized pricing plans and can provide a detailed ROI analysis for your specific situation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Redeploy</h3>
+                    <p class="text-gray-400 text-sm">
+                        Connecting talent with opportunity during workforce transitions.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">For Companies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Report Redundancies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Hire Through Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Corporate Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">For Professionals</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Register Your Profile</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Job Opportunities</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Career Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-4">
+                        info@redeploy.com<br>
+                        +44 7424 246539
+                    </p>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 Redeploy. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        feather.replace();
+        
+        // Toggle FAQ items
+        document.querySelectorAll('button').forEach(button => {
+            if (button.querySelector('svg')) {
+                button.addEventListener('click', () => {
+                    const icon = button.querySelector('svg');
+                    const isOpen = icon.getAttribute('data-feather') === 'chevron-up';
+                    
+                    // Toggle icon
+                    feather.icons[isOpen ? 'chevron-down' : 'chevron-up'].replace(icon);
+                    
+                    // Re-initialize feather icons
+                    feather.replace();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
