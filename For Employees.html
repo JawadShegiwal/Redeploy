@@ -32,6 +32,20 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+        /* Mobile menu styles */
+        #mobile-menu {
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-hidden {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .mobile-menu-visible {
+            max-height: 500px;
+            opacity: 1;
+            overflow: visible;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -53,10 +67,21 @@
                     <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">Get Started</a>
                 </div>
                 <div class="-mr-2 flex items-center md:hidden">
-                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
-                        <i data-feather="menu"></i>
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu" id="menu-icon"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div class="md:hidden transition-all duration-300 ease-in-out mobile-menu-hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+                <a href="For Companies.html" class="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">For Companies</a>
+                <a href="For Employees.html" class="text-indigo-600 bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">For Employees</a>
+                <a href="how-it-works.html" class="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">How It Works</a>
+                <a href="About US.html" class="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white block px-3 py-2 rounded-md text-base font-medium">Get Started</a>
             </div>
         </div>
     </nav>
@@ -454,6 +479,56 @@
             // Reset form
             alert('Thank you for registering your interest! We will contact you soon.');
             document.getElementById('registrationForm').reset();
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                // Toggle the menu visibility
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                
+                // Toggle the menu classes
+                if (isExpanded) {
+                    mobileMenu.classList.remove('mobile-menu-visible');
+                    mobileMenu.classList.add('mobile-menu-hidden');
+                    // Change icon to menu
+                    feather.replace();
+                } else {
+                    mobileMenu.classList.remove('mobile-menu-hidden');
+                    mobileMenu.classList.add('mobile-menu-visible');
+                    // Change icon to close (x)
+                    menuIcon.setAttribute('name', 'x');
+                    feather.replace();
+                }
+            });
+            
+            // Close menu when clicking on a link
+            const menuLinks = mobileMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('mobile-menu-visible');
+                    mobileMenu.classList.add('mobile-menu-hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    menuIcon.setAttribute('name', 'menu');
+                    feather.replace();
+                });
+            });
+            
+            // Change icon based on menu state
+            mobileMenuButton.addEventListener('click', function() {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                if (isExpanded) {
+                    menuIcon.setAttribute('name', 'x');
+                } else {
+                    menuIcon.setAttribute('name', 'menu');
+                }
+                feather.replace();
+            });
         });
     </script>
 </body>
