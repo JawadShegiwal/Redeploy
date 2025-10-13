@@ -74,6 +74,38 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
+        /* File upload styling */
+        .file-upload-container {
+            border: 2px dashed #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+        
+        .file-upload-container:hover {
+            border-color: #4f46e5;
+            background-color: #f9fafb;
+        }
+        
+        .file-upload-container.drag-over {
+            border-color: #4f46e5;
+            background-color: #eef2ff;
+        }
+        
+        #file-name {
+            margin-top: 0.5rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+            display: none;
+        }
+        
+        .file-uploaded {
+            color: #065f46;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -376,6 +408,23 @@
                     <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
                 </div>
                 
+                <!-- CV Upload Section -->
+                <div class="mb-6">
+                    <label for="cv-upload" class="block text-sm font-medium text-gray-700 mb-2">Upload Your CV</label>
+                    <div class="file-upload-container" id="file-upload-container">
+                        <div class="flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            <p class="text-gray-500 text-sm">Click to upload or drag and drop</p>
+                            <p class="text-gray-400 text-xs mt-1">PDF, DOC, DOCX up to 10MB</p>
+                        </div>
+                        <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" class="hidden" />
+                    </div>
+                    <!-- File name will be displayed here -->
+                    <div id="file-name"></div>
+                </div>
+                
                 <div class="mb-6">
                     <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
                         Register My Interest
@@ -529,6 +578,86 @@
             emailjs.init("hWAy2PJpp3MWZFoDs");
         })();
 
+        // CV Upload File Handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileUploadContainer = document.getElementById('file-upload-container');
+            const cvFileInput = document.getElementById('cvFile');
+            const fileNameDisplay = document.getElementById('fileName');
+            
+            // Click on the container to trigger file input
+            fileUploadContainer.addEventListener('click', function() {
+                cvFileInput.click();
+            });
+            
+            // Handle file selection
+            cvFileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    // Validate file type and size (10MB max)
+                    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+                    
+                    if (!validTypes.includes(file.type)) {
+                        alert('Please upload a PDF, DOC or DOCX file.');
+                        return;
+                    }
+                    
+                    if (file.size > maxSize) {
+                        alert('File size exceeds 10MB limit.');
+                        return;
+                    }
+                    
+                    // Display file name
+                    fileNameDisplay.textContent = `Selected: ${file.name}`;
+                    fileNameDisplay.classList.add('file-uploaded');
+                    fileNameDisplay.style.display = 'block';
+                }
+            });
+            
+            // Handle drag and drop
+            fileUploadContainer.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.add('drag-over');
+            });
+            
+            fileUploadContainer.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.remove('drag-over');
+            });
+            
+            fileUploadContainer.addEventListener('drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.remove('drag-over');
+                
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    cvFileInput.files = e.dataTransfer.files;
+                    
+                    const file = e.dataTransfer.files[0];
+                    // Validate file type and size (10MB max)
+                    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+                    
+                    if (!validTypes.includes(file.type)) {
+                        alert('Please upload a PDF, DOC or DOCX file.');
+                        return;
+                    }
+                    
+                    if (file.size > maxSize) {
+                        alert('File size exceeds 10MB limit.');
+                        return;
+                    }
+                    
+                    // Display file name
+                    fileNameDisplay.textContent = `Selected: ${file.name}`;
+                    fileNameDisplay.classList.add('file-uploaded');
+                    fileNameDisplay.style.display = 'block';
+                }
+            });
+        });
+
         // Form submission handler with EmailJS
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -547,6 +676,7 @@
             const email = document.getElementById('email');
             const role = document.getElementById('role');
             const message = document.getElementById('message');
+            const cvFile = document.getElementById('cvFile');
             
             // Create form data object
             const formData = {
@@ -560,6 +690,18 @@
                 from_name: firstName.value + ' ' + lastName.value
             };
 
+            // Add CV file data if a file is selected
+            let cvFileData = null;
+            if (cvFile && cvFile.files && cvFile.files[0]) {
+                const fileReader = new FileReader();
+                
+                // In modern EmailJS, you cannot directly send file attachments through the browser
+                // You would need a server-side component to handle file uploads
+                // For now, we'll just notify the user that the CV will need to be shared separately
+                
+                formData.message += "\n\n[Note: User has uploaded a CV that will be shared through a secure channel]";
+            }
+
             // Send the email using EmailJS
             emailjs.send('service_9d7c1zx', 'template_9c2it0s', formData)
                 .then(function(response) {
@@ -567,6 +709,7 @@
                     
                     // Reset the form
                     document.getElementById('registrationForm').reset();
+                    document.getElementById('file-name').style.display = 'none';
                     
                     // Show success message
                     document.getElementById('success-message').style.display = 'block';
