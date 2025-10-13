@@ -598,7 +598,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const fileUploadContainer = document.getElementById('file-upload-container');
             const cvFileInput = document.getElementById('cvFile');
-            const fileNameDisplay = document.getElementById('fileName');
+            const fileNameDisplay = document.getElementById('file-name');
             
             // Click on the container to trigger file input
             fileUploadContainer.addEventListener('click', function() {
@@ -712,7 +712,7 @@
                 email: email.value,
                 role: role.value,
                 message: message.value,
-                to_email: 'jawadshegiwal@gmail.com',
+                to_email: 'jawadshegiwal@gmail.com',  // Email destination is set here
                 reply_to: email.value,
                 from_name: firstName.value + ' ' + lastName.value
             };
