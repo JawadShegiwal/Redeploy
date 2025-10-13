@@ -12,9 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- Calendly link widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -48,81 +51,6 @@
             opacity: 1;
             overflow: visible;
         }
-        /* Success message styling */
-        #success-message {
-            display: none;
-            text-align: center;
-            padding: 1rem;
-            background-color: #d1fae5;
-            color: #065f46;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        #error-message {
-            display: none;
-            text-align: center;
-            padding: 1rem;
-            background-color: #fee2e2;
-            color: #991b1b;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* File upload styling */
-        .file-upload-container {
-            border: 2px dashed #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 0.5rem;
-        }
-        
-        .file-upload-container:hover {
-            border-color: #4f46e5;
-            background-color: #f9fafb;
-        }
-        
-        .file-upload-container.drag-over {
-            border-color: #4f46e5;
-            background-color: #eef2ff;
-        }
-        
-        #file-name {
-            margin-top: 0.5rem;
-            color: #6b7280;
-            font-size: 0.875rem;
-            display: none;
-        }
-        
-        .file-uploaded {
-            color: #065f46;
-        }
-        
-        /* Form input styles to ensure text is visible */
-        .form-input {
-            color: #1F2937;
-            caret-color: #4F46E5;
-        }
-        
-        .form-input::placeholder {
-            color: #9CA3AF;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: #4F46E5;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -141,7 +69,6 @@
                     <a href="For Employees.html" class="text-indigo-600 px-3 py-2 text-sm font-bold border-b-2 border-indigo-600">For Employees</a>
                     <a href="how-it-works.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">How It Works</a>
                     <a href="About US.html" class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">About Us</a>
-                    <!-- Removed Get Started button from desktop navigation -->
                 </div>
                 <div class="-mr-2 flex items-center md:hidden">
                     <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
@@ -158,7 +85,6 @@
                 <a href="For Employees.html" class="text-indigo-600 bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">For Employees</a>
                 <a href="how-it-works.html" class="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">How It Works</a>
                 <a href="About US.html" class="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
-                <!-- Removed Get Started button from mobile navigation -->
             </div>
         </div>
     </nav>
@@ -174,8 +100,9 @@
                 We help talented professionals affected by redundancy, or if you are looking for a new challenge, find their next career opportunity—quickly, seamlessly, and with dignity.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="#register" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-md transition-colors">
-                    Register Your Interest
+                <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jawadafghan01/30min'});return false;" 
+                   class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-md transition-colors">
+                    Schedule a Call
                 </a>
                 <a href="#benefits" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-6 rounded-md border border-indigo-600 transition-colors">
                     How It Works
@@ -307,7 +234,7 @@
                             </p>
                             <div class="bg-indigo-50 p-4 rounded-lg">
                                 <ul class="text-sm text-gray-700 space-y-1">
-                                    <li>• Upload your current resume</li>
+                                    <li>• Schedule a call with us</li>
                                     <li>• Share your notice period end date</li>
                                     <li>• Specify your ideal role parameters</li>
                                 </ul>
@@ -391,70 +318,54 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="register" class="py-20 bg-indigo-600 text-white">
+    <section id="schedule-call" class="py-20 bg-indigo-600 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Ready to Start Your Next Chapter?</h2>
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Let's Talk</h2>
             <p class="text-xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Register your profile today and let us help you find your next opportunity—quickly, confidently, and with dignity.
+                Instead of going back and forth over email, why not book a quick call with us? Let’s have a real conversation and make things happen faster.
             </p>
             
-            <form id="registrationForm" data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-xl p-8 shadow-lg text-left max-w-2xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                        <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 form-input" required>
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+                <div class="text-gray-700">
+                    <p class="mb-6 text-lg leading-relaxed">
+                        We'll connect you with a career specialist who can answer your questions, discuss your situation, and help you understand how we can support your next steps.
+                    </p>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-lg mb-6">
+                        <h3 class="font-semibold text-gray-900 mb-3">What to expect:</h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-green-500 mt-0.5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>15-minute confidential conversation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-green-500 mt-0.5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>No pressure, just genuine support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-green-500 mt-0.5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Personalized next steps</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div>
-                        <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 form-input" required>
-                    </div>
+                    
+                    <a href="#" 
+                       onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jawadafghan01/30min'});return false;"
+                       class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition-colors">
+                        Schedule a Call
+                    </a>
+                    
+                    <p class="text-sm text-gray-500 mt-6">
+                        Available slots within 48 hours. All calls are completely confidential.
+                    </p>
                 </div>
-                
-                <div class="mb-6">
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 form-input" required>
-                </div>
-                
-                <div class="mb-6">
-                    <label for="role" class="block text-sm font-medium text-gray-700 mb-2">Current/Most Recent Role</label>
-                    <input type="text" id="role" name="role" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 form-input" required>
-                </div>
-                
-                <div class="mb-8">
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Briefly describe your situation and what you're looking for</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 form-input" required></textarea>
-                </div>
-                
-                <!-- CV Upload Section -->
-                <div class="mb-6">
-                    <label for="cv-upload" class="block text-sm font-medium text-gray-700 mb-2">Upload Your CV</label>
-                    <div class="file-upload-container" id="file-upload-container">
-                        <div class="flex flex-col items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                            </svg>
-                            <p class="text-gray-500 text-sm">Click to upload or drag and drop</p>
-                            <p class="text-gray-400 text-xs mt-1">PDF, DOC, DOCX up to 10MB</p>
-                        </div>
-                        <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" class="hidden" />
-                    </div>
-                    <!-- File name will be displayed here -->
-                    <div id="file-name"></div>
-                </div>
-                
-                <div class="mb-6">
-                    <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
-                        Register My Interest
-                    </button>
-                </div>
-                
-                <div id="success-message">Thank you for registering your interest! We will contact you soon.</div>
-                <div id="error-message">Sorry, there was an error submitting your form. Please try again.</div>
-                
-                <p class="text-sm text-gray-500 mt-6">
-                    By submitting this form, you agree to our <a href="#" class="text-indigo-200 hover:text-indigo-100">Privacy Policy</a> and consent to be contacted by our team.
-                </p>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -480,7 +391,7 @@
                 <div>
                     <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">For Employees</h3>
                     <ul class="space-y-2">
-                        <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm">Register Your Profile</a></li>
+                        <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm">Schedule a Call</a></li>
                         <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm">Job Opportunities</a></li>
                         <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm">Career Support</a></li>
                         <li><a href="For Employees.html" class="text-gray-400 hover:text-white text-sm">Company Culture</a></li>
@@ -587,179 +498,6 @@
                     });
                 });
             }
-        });
-
-        // EmailJS initialization
-        (function() {
-            // Initialize EmailJS with your public key
-            emailjs.init("hWAy2PJpp3MWZFoDs");
-        })();
-
-        // CV Upload File Handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const fileUploadContainer = document.getElementById('file-upload-container');
-            const cvFileInput = document.getElementById('cvFile');
-            const fileNameDisplay = document.getElementById('file-name');
-            
-            // Click on the container to trigger file input
-            fileUploadContainer.addEventListener('click', function() {
-                cvFileInput.click();
-            });
-            
-            // Handle file selection
-            cvFileInput.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
-                    const file = this.files[0];
-                    // Validate file type and size (10MB max)
-                    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-                    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
-                    
-                    if (!validTypes.includes(file.type)) {
-                        alert('Please upload a PDF, DOC or DOCX file.');
-                        return;
-                    }
-                    
-                    if (file.size > maxSize) {
-                        alert('File size exceeds 10MB limit.');
-                        return;
-                    }
-                    
-                    // Display file name
-                    fileNameDisplay.textContent = `Selected: ${file.name}`;
-                    fileNameDisplay.classList.add('file-uploaded');
-                    fileNameDisplay.style.display = 'block';
-                }
-            });
-            
-            // Handle drag and drop
-            fileUploadContainer.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.classList.add('drag-over');
-            });
-            
-            fileUploadContainer.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.classList.remove('drag-over');
-            });
-            
-            fileUploadContainer.addEventListener('drop', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.classList.remove('drag-over');
-                
-                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                    cvFileInput.files = e.dataTransfer.files;
-                    
-                    const file = e.dataTransfer.files[0];
-                    // Validate file type and size (10MB max)
-                    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-                    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
-                    
-                    if (!validTypes.includes(file.type)) {
-                        alert('Please upload a PDF, DOC or DOCX file.');
-                        return;
-                    }
-                    
-                    if (file.size > maxSize) {
-                        alert('File size exceeds 10MB limit.');
-                        return;
-                    }
-                    
-                    // Display file name
-                    fileNameDisplay.textContent = `Selected: ${file.name}`;
-                    fileNameDisplay.classList.add('file-uploaded');
-                    fileNameDisplay.style.display = 'block';
-                }
-            });
-
-            // For responsive input focus
-            const formInputs = document.querySelectorAll('.form-input');
-            formInputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.classList.add('ring-2', 'ring-indigo-500');
-                });
-                input.addEventListener('blur', function() {
-                    this.classList.remove('ring-2', 'ring-indigo-500');
-                });
-            });
-        });
-
-        // Form submission handler with EmailJS
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Get the submit button and store its original content
-            const submitBtn = document.getElementById('submitBtn');
-            const originalBtnContent = submitBtn.innerHTML;
-            
-            // Disable the button and show loading state
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending...';
-            
-            // Get form elements
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const email = document.getElementById('email');
-            const role = document.getElementById('role');
-            const message = document.getElementById('message');
-            const cvFile = document.getElementById('cvFile');
-            
-            // Create form data object
-            const formData = {
-                firstName: firstName.value,
-                lastName: lastName.value,
-                email: email.value,
-                role: role.value,
-                message: message.value,
-                to_email: 'jawadshegiwal@gmail.com',  // Email destination is set here
-                reply_to: email.value,
-                from_name: firstName.value + ' ' + lastName.value
-            };
-
-            // Add note about CV if a file is selected
-            if (cvFile && cvFile.files && cvFile.files[0]) {
-                formData.message += "\n\n[Note: User has uploaded a CV that will be shared through a secure channel]";
-            }
-
-            // Send the email using EmailJS
-            emailjs.send('service_9d7c1zx', 'template_9c2it0s', formData)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    
-                    // Reset the form
-                    document.getElementById('registrationForm').reset();
-                    document.getElementById('file-name').style.display = 'none';
-                    
-                    // Show success message
-                    document.getElementById('success-message').style.display = 'block';
-                    document.getElementById('error-message').style.display = 'none';
-                    
-                    // Reset button
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalBtnContent;
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(function() {
-                        document.getElementById('success-message').style.display = 'none';
-                    }, 5000);
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    
-                    // Show error message
-                    document.getElementById('error-message').style.display = 'block';
-                    document.getElementById('success-message').style.display = 'none';
-                    
-                    // Reset button
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalBtnContent;
-                    
-                    // Hide error message after 5 seconds
-                    setTimeout(function() {
-                        document.getElementById('error-message').style.display = 'none';
-                    }, 5000);
-                });
         });
     </script>
 </body>
