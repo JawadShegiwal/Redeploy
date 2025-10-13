@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -45,6 +46,33 @@
             max-height: 500px;
             opacity: 1;
             overflow: visible;
+        }
+        /* Success message styling */
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            background-color: #d1fae5;
+            color: #065f46;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        #error-message {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            background-color: #fee2e2;
+            color: #991b1b;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -325,36 +353,39 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                        <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                     </div>
                     <div>
                         <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                     </div>
                 </div>
                 
                 <div class="mb-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 
                 <div class="mb-6">
                     <label for="role" class="block text-sm font-medium text-gray-700 mb-2">Current/Most Recent Role</label>
-                    <input type="text" id="role" name="role" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <input type="text" id="role" name="role" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 
                 <div class="mb-8">
                     <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Briefly describe your situation and what you're looking for</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
                 </div>
                 
                 <div class="mb-6">
-                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+                    <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
                         Register My Interest
                     </button>
                 </div>
                 
-                <p class="text-sm text-gray-500">
+                <div id="success-message">Thank you for registering your interest! We will contact you soon.</div>
+                <div id="error-message">Sorry, there was an error submitting your form. Please try again.</div>
+                
+                <p class="text-sm text-gray-500 mt-6">
                     By submitting this form, you agree to our <a href="#" class="text-indigo-200 hover:text-indigo-100">Privacy Policy</a> and consent to be contacted by our team.
                 </p>
             </form>
@@ -435,50 +466,22 @@
         feather.replace();
         
         // Initialize Vanta.js waves
-        VANTA.WAVES({
-            el: "#vanta-waves",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x4f46e5,
-            waveHeight: 20,
-            waveSpeed: 0.8
-        });
-
-        // Form submission handler
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Collect form data
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                role: document.getElementById('role').value,
-                message: document.getElementById('message').value
-            };
-
-            // Email parameters
-            const templateParams = {
-                to_email: 'Jawadshegiwal@gmail.com',
-                from_name: formData.firstName + ' ' + formData.lastName,
-                from_email: formData.email,
-                role: formData.role,
-                message: formData.message
-            };
-
-            // For demo purposes, we'll just redirect to mailto. In production, you'd use EmailJS or a server endpoint.
-            const mailtoLink = `mailto:Jawadshegiwal@gmail.com?subject=New Interest Registration from ${formData.firstName} ${formData.lastName}&body=Name: ${formData.firstName} ${formData.lastName}%0D%0AEmail: ${formData.email}%0D%0ARole: ${formData.role}%0D%0AMessage:%0D%0A${formData.message}`;
-            
-            window.location.href = mailtoLink;
-            
-            // Reset form
-            alert('Thank you for registering your interest! We will contact you soon.');
-            document.getElementById('registrationForm').reset();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (document.getElementById('vanta-waves')) {
+                VANTA.WAVES({
+                    el: "#vanta-waves",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0x4f46e5,
+                    waveHeight: 20,
+                    waveSpeed: 0.8
+                });
+            }
         });
 
         // Mobile menu functionality
@@ -487,50 +490,113 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
             
-            mobileMenuButton.addEventListener('click', function() {
-                // Toggle the menu visibility
-                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-                
-                // Toggle the menu classes
-                if (isExpanded) {
-                    mobileMenu.classList.remove('mobile-menu-visible');
-                    mobileMenu.classList.add('mobile-menu-hidden');
-                    // Change icon to menu
-                    feather.replace();
-                } else {
-                    mobileMenu.classList.remove('mobile-menu-hidden');
-                    mobileMenu.classList.add('mobile-menu-visible');
-                    // Change icon to close (x)
-                    menuIcon.setAttribute('name', 'x');
-                    feather.replace();
-                }
-            });
-            
-            // Close menu when clicking on a link
-            const menuLinks = mobileMenu.querySelectorAll('a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.remove('mobile-menu-visible');
-                    mobileMenu.classList.add('mobile-menu-hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    menuIcon.setAttribute('name', 'menu');
+            if (mobileMenuButton && mobileMenu && menuIcon) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // Toggle the menu visibility
+                    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                    
+                    // Toggle the menu classes
+                    if (isExpanded) {
+                        mobileMenu.classList.remove('mobile-menu-visible');
+                        mobileMenu.classList.add('mobile-menu-hidden');
+                        menuIcon.setAttribute('name', 'menu');
+                    } else {
+                        mobileMenu.classList.remove('mobile-menu-hidden');
+                        mobileMenu.classList.add('mobile-menu-visible');
+                        menuIcon.setAttribute('name', 'x');
+                    }
                     feather.replace();
                 });
-            });
+                
+                // Close menu when clicking on a link
+                const menuLinks = mobileMenu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('mobile-menu-visible');
+                        mobileMenu.classList.add('mobile-menu-hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        menuIcon.setAttribute('name', 'menu');
+                        feather.replace();
+                    });
+                });
+            }
+        });
+
+        // EmailJS initialization
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init("hWAy2PJpp3MWZFoDs");
+        })();
+
+        // Form submission handler with EmailJS
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
             
-            // Change icon based on menu state
-            mobileMenuButton.addEventListener('click', function() {
-                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-                if (isExpanded) {
-                    menuIcon.setAttribute('name', 'x');
-                } else {
-                    menuIcon.setAttribute('name', 'menu');
-                }
-                feather.replace();
-            });
+            // Get the submit button and store its original content
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnContent = submitBtn.innerHTML;
+            
+            // Disable the button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+            
+            // Get form elements for error handling
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('email');
+            const role = document.getElementById('role');
+            const message = document.getElementById('message');
+            
+            // Create form data object
+            const formData = {
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                role: role.value,
+                message: message.value,
+                to_email: 'jawadshegiwal@gmail.com',
+                reply_to: email.value,
+                from_name: firstName.value + ' ' + lastName.value
+            };
+
+            // Send the email using EmailJS
+            emailjs.send('service_9d7c1zx', 'template_9c2it0s', formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Reset the form
+                    document.getElementById('registrationForm').reset();
+                    
+                    // Show success message
+                    document.getElementById('success-message').style.display = 'block';
+                    document.getElementById('error-message').style.display = 'none';
+                    
+                    // Reset button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnContent;
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        document.getElementById('success-message').style.display = 'none';
+                    }, 5000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Show error message
+                    document.getElementById('error-message').style.display = 'block';
+                    document.getElementById('success-message').style.display = 'none';
+                    
+                    // Reset button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnContent;
+                    
+                    // Hide error message after 5 seconds
+                    setTimeout(function() {
+                        document.getElementById('error-message').style.display = 'none';
+                    }, 5000);
+                });
         });
     </script>
 </body>
 </html>
-
