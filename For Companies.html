@@ -38,6 +38,51 @@
             background-color: #e2e8f0;
             z-index: 1;
         }
+        .calendly-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: none;
+            overflow: auto;
+        }
+        .calendly-content {
+            margin: 20px auto;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        .calendly-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background-color: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .calendly-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .close-calendly {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #64748b;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -359,9 +404,9 @@
                 Let us help you manage workforce transitions with compassion, professionalism, and results.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://calendly.com/jawadafghan01/30min" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-8 rounded-md transition-colors text-center">
-                    Schedule a Demo
-                </a>
+                <button id="schedule-call-btn" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-8 rounded-md transition-colors text-center cursor-pointer">
+                    Schedule a Call
+                </button>
             </div>
             <p class="mt-6 text-indigo-100 text-sm" data-aos="fade-up" data-aos-delay="300">
                 Implementation in as little as 48 hours • Enterprise-grade security • Dedicated support team
@@ -486,6 +531,20 @@
         </div>
     </footer>
 
+    <!-- Calendly Container -->
+    <div id="calendly-container" class="calendly-container">
+        <div class="calendly-content">
+            <div class="calendly-header">
+                <h3>Schedule a Call with Redeploy</h3>
+                <button id="close-calendly" class="close-calendly">&times;</button>
+            </div>
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/jawadafghan01/30min" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+        </div>
+    </div>
+
     <script>
         AOS.init({
             duration: 800,
@@ -542,6 +601,31 @@
                 mobileMenuButton.setAttribute('aria-expanded', 'false');
                 feather.icons['menu'].replace(mobileMenuButton.querySelector('svg'));
                 feather.replace();
+            }
+        });
+
+        // Schedule call button functionality
+        const scheduleBtn = document.getElementById('schedule-call-btn');
+        const calendlyContainer = document.getElementById('calendly-container');
+        const closeCalendlyBtn = document.getElementById('close-calendly');
+
+        scheduleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            calendlyContainer.style.display = 'block';
+            // Prevent scrolling on the main page when modal is open
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeCalendlyBtn.addEventListener('click', function() {
+            calendlyContainer.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside the content
+        calendlyContainer.addEventListener('click', function(e) {
+            if (e.target === calendlyContainer) {
+                calendlyContainer.style.display = 'none';
+                document.body.style.overflow = '';
             }
         });
     </script>
