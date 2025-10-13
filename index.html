@@ -12,6 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Calendly link widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Calendly link widget end -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -333,8 +337,8 @@
                 Instead of going back and forth over email, why not book a quick call with us? Let’s have a real conversation and make things happen faster.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://calendly.com/jawadafghan01/30min" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-6 rounded-md transition-colors">
-                    Schedule a Demo
+                <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jawadafghan01/30min'});return false;" class="bg-white hover:bg-gray-100 text-indigo-600 font-medium py-3 px-6 rounded-md transition-colors inline-flex items-center justify-center">
+                    Schedule a Call
                 </a>
             </div>
         </div>
